@@ -1,6 +1,6 @@
-import data  from './fakepeople.js';
+import fakepeople  from './fakepeople.js';
 
-console.log(data);
+console.log(fakepeople);
 
 
 
@@ -51,4 +51,4 @@ console.log(data);
 }
 // var table_body_element = document.createElement('tbody');
    // table_body_element.innerHTML = row_data;
-   // document.getElementById('my_table').appendChild(table_body_element);
+   // document.getElementById('my_table').appendChild(table_body_element);*/
