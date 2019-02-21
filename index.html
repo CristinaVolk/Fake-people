@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fake People</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="fakepeople.js"></script>
+       
+    </head>
+    <body>
+   
+        <div class="header">
+            <h1>Fake People</h1>
+        </div>
+
+        <div class="wrapper">
+            <div class="words">
+                <table>
+                        <tbody>
+                                <tr>
+                                     <td>Number of people with green eyes : </td> 
+                                     <td>OOOOOOO</td>
+                                     <td> <div id="green-people"></div> </td>
+                                </tr>
+                              </tbody>
+                </table>
+              
+                                  
+                The details of the person who lives closest to the Eiffel Tower: 
+                <p id="firstname"></p> 
+                <p id="lastname"></p>
+                <p id="balance"></p>
+                <p id="age"></p>
+                <p id="eyeColor"></p>
+                <p id="email"></p>
+                <p id="phone"></p>
+                <p id="caddress"></p>  
+            </div>
+
+            <div class="container">
+                    <table id="my_table" class="table">
+                    </table>
+                  </div>
+        </div>
+        </div>
+    </body>
+    <script>
+    var local_data = data;
+    var row_data = '';
+    var numberOfgreen = document.getElementById("green-people");
+    var greenNumber=0;
+    for (var i = 0; i < local_data.length; i++) {
+        if (local_data[i].eyeColor === "green"){
+           greenNumber++;
+        }
+    }
+    numberOfgreen.innerHTML = greenNumber;  
+    
+    //Longitude of Eiffel Tower: 2.294481
+    //Latitude of Eiffel Tower: 48.858370
+    var firstname=document.getElementById("firstname");
+    var person=null;
+    var towerLat = 48.858370;
+    var towerLon = 2.294481;
+    var minDifferenceLat =Math.abs(local_data[0].latitude - towerLat);
+    var minDifferenceLon = Math.abs(local_data[0].longitude - towerLon);
+
+    for (var i = 0; i < local_data.length; i++) {
+      diffLat = Math.abs(local_data[i].latitude - towerLat);
+      diffLon = Math.abs(local_data[i].longitude -towerLon);
+      if (diffLat<minDifferenceLat && diffLon<minDifferenceLon ){
+        person = local_data[i];
+      }        
+    };
+    firstname.innerHTML = person.name.first;
+
+   
+   </script>
+</html>
+

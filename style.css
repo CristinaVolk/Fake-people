@@ -1,0 +1,33 @@
+body {
+    font-size: 20px;
+}
+
+.header {
+    width: 50%;
+    margin: 40px auto 0px;
+    color: white;
+    background: #9116C2;
+    text-align: center;
+    border: 1px solid grey;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 30px;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0px auto;
+    border: 1px solid gray;
+}
+
+.words {
+    width: 100%;
+    background: #41DEE5;
+    padding-top: 10px;
+    float: left;
+}
+
+.word {
+    width: 70px;
+    float: left;
+    padding-left: 10px;
+}
