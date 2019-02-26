@@ -19,5 +19,6 @@
   "homepage": "https://github.com/CristinaVolk/Fake-people#readme",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "devDependencies": {}
 }

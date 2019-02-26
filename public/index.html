@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>  
-        <link rel="stylesheet" type="text/css" href="./css/style.css"> 
+        <link rel="stylesheet" type="text/css" href="./css/style.css">        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script type="text/javascript" src="./js/index.js"></script>    
+        <script type='application/ld+json' src="./js/fakepeople.json"></script>
+        
+
         <title>Fake People</title> 
         
     </head>
@@ -31,131 +36,10 @@
                                         <td>The average age of everyone with blue eyes: </td> 
                                         <td><p id="blue-eyes"></p> </td>                                       
                                     </tr>
-                                
-                                
-                               
                         </tbody>
                 </table>
             </div>
         </div>       
     </body>
-
-
-    <script>
-        var local_data = fakepeople;
-        var numberOfgreen = document.getElementById("green-people");
-        var greenNumber=0;
-        for (var i = 0; i < local_data.length; i++) {
-            if (local_data[i].eyeColor === "green"){
-               greenNumber++;
-            }
-        }
-        numberOfgreen.innerHTML = greenNumber;  
-          
-        
-        //Longitude of Eiffel Tower: 2.294481
-        //Latitude of Eiffel Tower: 48.858370
-        var closestPerson=document.getElementById("closest-person");
-        var person=null;
-        var towerLat = 48.858370;
-        var towerLon = 2.294481;
-        var minDifferenceLat =Math.abs(local_data[0].latitude - towerLat);
-        var minDifferenceLon = Math.abs(local_data[0].longitude - towerLon);
-        
-        for (var i = 0; i < local_data.length; i++) {
-          diffLat = Math.abs(local_data[i].latitude - towerLat);
-          diffLon = Math.abs(local_data[i].longitude -towerLon);
-          if (diffLat<minDifferenceLat && diffLon<minDifferenceLon ){
-            person = local_data[i];
-          } 
-        }
-        var row_data =' '+
-        '<tr>' + 
-            '<td> Firstname : </td>'+
-            '<td>' + person.name.first + '</td>'+
-        '</tr>'+'<br>'+
-        '<tr>'+
-                '<td> Lastname : </td>'+ 
-                '<td>' +person.name.last + '</td>' +
-        '</tr>'+'<br>'+
-        '<tr>'+
-                '<td> Age : </td>'+ 
-                '<td>' +person.age + '</td>' +
-        '</tr>'+'<br>'+
-        '<tr>'+
-                '<td> eyeColor : </td>'+ 
-                '<td>' +person.eyeColor + '</td>' +
-        '</tr>'+'<br>'+
-        '<tr>'+
-                '<td> Balance : </td>'+ 
-                '<td>' +person.balance + '</td>' +
-        '</tr>'+'<br>'+
-        '<tr>'+
-                '<td> Company : </td>'+ 
-                '<td>' +person.company + '</td>' +
-        '</tr>'+'<br>'+
-        '<tr>'+
-                '<td> Email : </td>'+ 
-                '<td>' +person.email + '</td>' +
-        '</tr>'+'<br>'+  
-        '<tr>'+
-                '<td> Phone : </td>'+ 
-                '<td>' +person.phone + '</td>' +
-        '</tr>'+'<br>'+ 
-        '<tr>'+
-                '<td> Address : </td>'+ 
-                '<td>' +person.address + '</td>' +
-        '</tr>'+'<br>'+   
-        '<tr>'+
-                '<td> Registered : </td>'+ 
-                '<td>' +person.registered + '</td>' +
-        '</tr>'+'<br>'; 
-        
-        closestPerson.innerHTML = row_data;
-
-
-        var commonSurnames = document.getElementById("common-surnames");
-        var temp=[];
-        local_data.forEach(person => {
-            var match=0;
-            for (var i = 0; i < local_data.length; i++){
-                 if ( person.name.last === local_data[i].name.last){
-                     match++;
-                 }
-            }
-            
-            temp.push({ "person":person,
-                        "match":match    });
-        });
-
-        temp.sort(function(a,b){
-            return b.match-a.match;
-        })
-
-        var surnames =[];
-        for (var i = 0; i < 10; i++){
-        surnames.push(' '+temp[i].person.name.last);
-        }
-        commonSurnames.innerHTML = surnames;
-
-
-        var blueEyesPeople = document.getElementById("blue-eyes");
-        var blueEyeArray = [];
-        for (var i = 0; i < local_data.length; i++){
-            if(local_data[i].eyeColor==="blue"){
-                blueEyeArray.push(local_data[i].age);
-            }
-        }
-        
-        var total = 0;
-        for(var i = 0; i < blueEyeArray.length; i++) {
-            total += blueEyeArray[i];
-        }
-        var avg = total / blueEyeArray.length;
-        blueEyesPeople.innerHTML=Math.round(avg);
-
-        </script>
-
-    
 </html>
 
