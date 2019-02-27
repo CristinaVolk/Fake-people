@@ -103,7 +103,7 @@
 
     var surnames =[];
     for (var i = 0; i < 10; i++){
-    surnames.push(' '+temp[i].person.name.last);
+    surnames.push(' '+temp[i].person.name.last+' : '+ temp[i].match);
     }
     commonSurnames.innerHTML = surnames;
 
@@ -122,7 +122,58 @@
     }
     var avg = total / blueEyeArray.length;
     blueEyesPeople.innerHTML=Math.round(avg);
+  
 
+
+    var oldRich = document.getElementById("rich-old");
+    var youngRich = document.getElementById("rich-young");
+    var middle_Balance = document.getElementById("middle-balance");
+    var maxBalance=local_data[0].balance;
+    var minBalance=local_data[0].balance;;
+    //find max and min balance
+    for (var i = 1; i < local_data.length; i++){
+      if(local_data[i].balance > maxBalance){
+          maxBalance = local_data[i].balance;          
+      }     
+      if(local_data[i].balance < minBalance){
+        minBalance = local_data[i].balance;          
+    }  
+  }
+
+ 
+var middleBalance = (parseFloat(maxBalance.replace(/,/g,'')) + parseFloat(minBalance.replace(/,/g,'')))/2;
+
+middle_Balance.innerHTML = Math.round(middleBalance);
+
+ //find max and min age
+ var maxAge=local_data[0].age;
+ var minAge=local_data[0].age;
+ for (var i = 1; i < local_data.length; i++){
+  if(local_data[i].age > maxAge){
+      maxAge = local_data[i].age;          
+  }     
+  if(local_data[i].age < minAge){
+    minAge = local_data[i].age;          
+  }  
+}
+
+var middleAge = (maxAge+minAge)/2;
+var countRichOld=0;
+var countRichYoung=0;
+local_data.forEach(person => {
+  if (parseFloat(person.balance.replace(/,/g,'')) > middleBalance && person.age > middleAge){
+    countRichOld++;
+    
+  }
+  if (parseFloat(person.balance.replace(/,/g,'')) > middleBalance && person.age < middleAge){
+    countRichYoung++;
+  }
+})
+
+console.log(countRichYoung);
+
+oldRich.innerHTML = Math.round((countRichOld*100)/local_data.length)+' %';
+youngRich.innerHTML = Math.round((countRichYoung*100)/local_data.length)+' %';
 });
  
  
