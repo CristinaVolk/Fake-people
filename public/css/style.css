@@ -1,12 +1,14 @@
 body {
     font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    
 }
 
 .header {
-    width: 50%;
+    width:  100%;
     margin: 40px auto 0px;
-    color: white;
-    background: #9116C2;
+    color: rgb(107, 0, 27);
+    background: rgb(186, 58, 236);
     text-align: center;
     border: 1px solid grey;
     font-family: 'Times New Roman', Times, serif;
@@ -14,20 +16,69 @@ body {
 }
 
 .wrapper {
-    width: 50%;
+    width: 100%;
     margin: 0px auto;
     border: 1px solid gray;
+    background: rgb(117, 155, 236);
+    border-radius: 30px;
 }
 
 .container {
     width: 100%;
-    background: #41DEE5;
     padding-top: 10px;
     float: left;
 }
 
-.word {
-    width: 70px;
-    float: left;
-    padding-left: 10px;
+
+table.table{  
+    width: 70%;  
+    margin: auto;
+	border-collapse: collapse;
+    border: 1px solid #fff;
+    border-style:hidden;
+    border-radius: 30px;
+  }
+
+
+  table.table caption {
+    height: 50px;
+	background-color: rgb(112, 49, 96);
+	color: rgb(237, 95, 241);
+	font-size: x-large;
+	font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+table.table tr {    
+    border-radius: 30px;
+    border-color: rgb(33, 6, 58) #B98DDD;
+    border-style: solid;
+}
+
+table.table td {
+    border: 1px dashed black;
+    border-radius: 30px;
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+    border-color: rgb(33, 6, 58) #B98DDD;
+    padding: 50px;
+    
+}
+
+
+table.table tr.even {  
+    border-radius: 30px;  
+    background-color: #d796fd;
+    color: rgb(70, 10, 94);
+    padding: 30px;
+    
+}
+table.table tr.odd {
+    background-color: #fd92a9;
+    color: rgb(104, 6, 52);
+    padding: 30px;
+    border-radius: 30px;
 }
