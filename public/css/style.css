@@ -1,6 +1,12 @@
 body {
     font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Snell Roundhand', cursive;
+    background-image: url(./sea.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     
 }
 
@@ -8,18 +14,18 @@ body {
     width:  100%;
     margin: 40px auto 0px;
     color: rgb(107, 0, 27);
-    background: rgb(186, 58, 236);
+    background: rgba(225, 187, 240, 0.7);
     text-align: center;
     border: 1px solid grey;
-    font-family: 'Times New Roman', Times, serif;
     border-radius: 30px;
+    font-size: 29px;
 }
 
 .wrapper {
     width: 100%;
     margin: 0px auto;
     border: 1px solid gray;
-    background: rgb(117, 155, 236);
+    
     border-radius: 30px;
 }
 
@@ -37,48 +43,49 @@ table.table{
     border: 1px solid #fff;
     border-style:hidden;
     border-radius: 30px;
+    text-align: center;
   }
 
 
   table.table caption {
     height: 50px;
-	background-color: rgb(112, 49, 96);
-	color: rgb(237, 95, 241);
-	font-size: x-large;
-	font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+	background-color: rgba(112, 49, 96, 0.7);
+    color: rgb(21, 1, 37);
+    font-size: 35px;
+    font-weight: bold;
+    font-family: bold 'Times New Roman', Times, serif;
     border-radius: 30px;
     padding: 10px;
 }
 
 table.table tr {    
+    border: 1px dashed black;
     border-radius: 30px;
-    border-color: rgb(33, 6, 58) #B98DDD;
     border-style: solid;
+    color: black;
+    font-size: 27px;
+    padding: 30px;
 }
 
 table.table td {
-    border: 1px dashed black;
+    border: 100px dashed black;
     border-radius: 30px;
 	padding: 3px;
 	border-width: 1px;
 	border-style: solid;
-    border-color: rgb(33, 6, 58) #B98DDD;
-    padding: 50px;
-    
+    border-color: rgba(33, 6, 58, 1);
+    padding: 20px;
 }
 
 
 table.table tr.even {  
     border-radius: 30px;  
-    background-color: #d796fd;
-    color: rgb(70, 10, 94);
-    padding: 30px;
+    background-color: rgba(221, 176, 247, 0.7);
+    color: black;
     
 }
 table.table tr.odd {
-    background-color: #fd92a9;
-    color: rgb(104, 6, 52);
-    padding: 30px;
+    background-color: rgba(247, 179, 194, 0.7);
+    color:black;
     border-radius: 30px;
 }
