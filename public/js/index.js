@@ -12,9 +12,9 @@
 
 
     
-    var numberOfgreen = document.getElementById("green-people");
-    var greenNumber=0;
-    for (var i = 0; i < local_data.length; i++) {
+    let numberOfgreen = document.getElementById("green-people");
+    let greenNumber=0;
+    for (let i = 0; i < local_data.length; i++) {
         if (local_data[i].eyeColor === "green"){
            greenNumber++;
         }
@@ -24,21 +24,21 @@
     
     //Longitude of Eiffel Tower: 2.294481
     //Latitude of Eiffel Tower: 48.858370
-    var closestPerson=document.getElementById("closest-person");
-    var person=null;
-    var towerLat = 48.858370;
-    var towerLon = 2.294481;
-    var minDifferenceLat =Math.abs(local_data[0].latitude - towerLat);
-    var minDifferenceLon = Math.abs(local_data[0].longitude - towerLon);
+    let closestPerson=document.getElementById("closest-person");
+    let person=null;
+    let towerLat = 48.858370;
+    let towerLon = 2.294481;
+    let minDifferenceLat =Math.abs(local_data[0].latitude - towerLat);
+    let minDifferenceLon = Math.abs(local_data[0].longitude - towerLon);
     
-    for (var i = 0; i < local_data.length; i++) {
+    for (let i = 0; i < local_data.length; i++) {
       diffLat = Math.abs(local_data[i].latitude - towerLat);
       diffLon = Math.abs(local_data[i].longitude -towerLon);
       if (diffLat<minDifferenceLat && diffLon<minDifferenceLon ){
         person = local_data[i];
       } 
     }
-    var row_data =' '+
+    let row_data =``+
     '<tr>' + 
         '<td> Firstname : </td>'+
         '<td>' + person.name.first + '</td>'+
@@ -83,55 +83,57 @@
     closestPerson.innerHTML = row_data;
 
 
-    var commonSurnames = document.getElementById("common-surnames");
-    var temp=[];
-    local_data.forEach(person => {
-        var match=0;
-        for (var i = 0; i < local_data.length; i++){
+    let temp=[];
+    local_data.map(person => {
+        let match=0;
+        for (let i = 0; i < local_data.length; i++){
              if ( person.name.last === local_data[i].name.last){
                  match++;
              }
-        }
-        
-        temp.push({ "person":person,
+        }        
+    temp.push({ "person":person,
                     "match":match    });
     });
 
     temp.sort(function(a,b){
         return b.match-a.match;
     })
+    temp.length=10;
+    
+    function getCommonSurnames(item){  
+        let fullname = ` `+[item.person.name.last,item.match].join(": ");
+        return fullname;   
+        } 
+    
 
-    var surnames =[];
-    for (var i = 0; i < 10; i++){
-    surnames.push(' '+temp[i].person.name.last+' : '+ temp[i].match);
-    }
-    commonSurnames.innerHTML = surnames;
+ 
+    document.getElementById("common-surnames").innerHTML = temp.map(getCommonSurnames)+``;
+    
 
 
-    var blueEyesPeople = document.getElementById("blue-eyes");
-    var blueEyeArray = [];
-    for (var i = 0; i < local_data.length; i++){
+    let blueEyesPeople = document.getElementById("blue-eyes");
+    let blueEyeArray = [];
+    for (let i = 0; i < local_data.length; i++){
         if(local_data[i].eyeColor==="blue"){
             blueEyeArray.push(local_data[i].age);
         }
     }
     
-    var total = 0;
-    for(var i = 0; i < blueEyeArray.length; i++) {
+    let total = 0;
+    for(let i = 0; i < blueEyeArray.length; i++) {
         total += blueEyeArray[i];
     }
-    var avg = total / blueEyeArray.length;
+    let avg = total / blueEyeArray.length;
     blueEyesPeople.innerHTML=Math.round(avg);
   
 
 
-    var oldRich = document.getElementById("rich-old");
-    var youngRich = document.getElementById("rich-young");
-    var middle_Balance = document.getElementById("middle-balance");
-    var maxBalance=local_data[0].balance;
-    var minBalance=local_data[0].balance;;
+    let oldRich = document.getElementById("rich-old");
+    let youngRich = document.getElementById("rich-young");
+    let maxBalance=local_data[0].balance;
+    let minBalance=local_data[0].balance;;
     //find max and min balance
-    for (var i = 1; i < local_data.length; i++){
+    for (let i = 1; i < local_data.length; i++){
       if(local_data[i].balance > maxBalance){
           maxBalance = local_data[i].balance;          
       }     
@@ -141,14 +143,14 @@
   }
 
  
-var middleBalance = (parseFloat(maxBalance.replace(/,/g,'')) + parseFloat(minBalance.replace(/,/g,'')))/2;
+let middleBalance = (parseFloat(maxBalance.replace(/,/g,'')) + parseFloat(minBalance.replace(/,/g,'')))/2;
 
 $("[id|=middle-balance]").text(Math.round(middleBalance));
 
  //find max and min age
- var maxAge=local_data[0].age;
- var minAge=local_data[0].age;
- for (var i = 1; i < local_data.length; i++){
+ let maxAge=local_data[0].age;
+ let minAge=local_data[0].age;
+ for (let i = 1; i < local_data.length; i++){
   if(local_data[i].age > maxAge){
       maxAge = local_data[i].age;          
   }     
@@ -157,9 +159,9 @@ $("[id|=middle-balance]").text(Math.round(middleBalance));
   }  
 }
 
-var middleAge = (maxAge+minAge)/2;
-var countRichOld=0;
-var countRichYoung=0;
+let middleAge = (maxAge+minAge)/2;
+let countRichOld=0;
+let countRichYoung=0;
 local_data.forEach(person => {
   if (parseFloat(person.balance.replace(/,/g,'')) > middleBalance && person.age > middleAge){
     countRichOld++;
@@ -209,15 +211,15 @@ youngRich.innerHTML = Math.round((countRichYoung*100)/local_data.length)+' %';
  
  
  
- /*for (var i = 0; i < local_data.length; i++) {
+ /*for (let i = 0; i < local_data.length; i++) {
     if (local_data[i].eyeColor === "green"){
-        var row_data = row_data + '<tr>' +
+        let row_data = row_data + '<tr>' +
     ' <td>' + local_data[i].name.first +'</td>' +
     ' <td>' + local_data[i].eyeColor + '</td>' +
     ' <td>' + local_data[i].age  +
     '</tr>';
     }
 }
- var table_body_element = document.createElement('tbody');
+ let table_body_element = document.createElement('tbody');
     table_body_element.innerHTML = row_data;
     document.getElementById('my_table').appendChild(table_body_element);*/
