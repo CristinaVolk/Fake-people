@@ -1,5 +1,3 @@
-
-
   $(document).ready(function() {
     $('a').click(function(event) {
       event.preventDefault();
@@ -103,10 +101,7 @@
     function getCommonSurnames(item){  
         let fullname = ` `+[item.person.name.last,item.match].join(": ");
         return fullname;   
-        } 
-    
-
- 
+    } 
     document.getElementById("common-surnames").innerHTML = temp.map(getCommonSurnames)+``;
     
 
