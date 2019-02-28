@@ -9,10 +9,8 @@ app.get('/index.html', function (req, res) {
     res.sendFile( __dirname + "/" + "index.html" );
  })
 
-
-
  app.get('/public/js/fakepeople.json', (req, res) => {
-  res.sendFile( __dirname + "/public/js/" + "fakepeople.json" );
+  res.sendFile( __dirname + "/" + "fakepeople.json" );
  });
 
 var server = app.listen(8080, function(){
