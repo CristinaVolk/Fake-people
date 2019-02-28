@@ -1,6 +1,6 @@
 body {
     font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Snell Roundhand', cursive;
     background-image: url(./sea.jpg);
     height: 100%;
     background-position: center;
@@ -17,7 +17,6 @@ body {
     background: rgba(225, 187, 240, 0.7);
     text-align: center;
     border: 1px solid grey;
-    font-family: 'Times New Roman', Times, serif;
     border-radius: 30px;
     font-size: 29px;
 }
@@ -51,7 +50,7 @@ table.table{
   table.table caption {
     height: 50px;
 	background-color: rgba(112, 49, 96, 0.7);
-    color: black;
+    color: rgb(21, 1, 37);
     font-size: 35px;
     font-weight: bold;
     font-family: bold 'Times New Roman', Times, serif;

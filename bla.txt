@@ -1,6 +1,0 @@
-.container {
-    width: 100%;
-    background: rgb(117, 155, 236);
-    padding-top: 10px;
-    float: left;
-}

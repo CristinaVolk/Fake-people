@@ -143,7 +143,7 @@
  
 var middleBalance = (parseFloat(maxBalance.replace(/,/g,'')) + parseFloat(minBalance.replace(/,/g,'')))/2;
 
-middle_Balance.innerHTML = Math.round(middleBalance);
+$("[id|=middle-balance]").text(Math.round(middleBalance));
 
  //find max and min age
  var maxAge=local_data[0].age;
